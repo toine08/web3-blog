@@ -54,7 +54,7 @@ contract Blog {
     }
 
     //create a new post
-    function createPost(uint postId, string memory hash, bool published) public onlyOwner{
+    function createPost(string memory title, string memory hash) public onlyOwner{
         _postIds.increment();
         uint postId = _postIds.current();
         Post storage post = idToPost[postId];
@@ -69,7 +69,7 @@ contract Blog {
     }
 
     //update an existing post
-    function updatePost(uint postId, string memory hash, bool published) public onlyOwner{
+    function updatePost(uint postId, string memory title, string memory hash, bool  published) public onlyOwner{
         Post storage post = idToPost[postId];
         post.title = title;
         post.published = published;
