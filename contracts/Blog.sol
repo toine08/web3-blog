@@ -62,14 +62,13 @@ contract Blog {
         post.title = title;
         post.published = true;
         post.content = hash;
-        idToPost[postId] = post;
         hashToPost[hash] = post;
 
         emit PostCreated(postId, title, hash);
     }
 
     //update an existing post
-    function updatePost(uint postId, string memory title, string memory hash, bool  published) public onlyOwner{
+    function updatePost(uint postId, string memory title, string memory hash, bool  published) public onlyOwner {
         Post storage post = idToPost[postId];
         post.title = title;
         post.published = published;
